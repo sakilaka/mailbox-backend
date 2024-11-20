@@ -59,4 +59,10 @@ Route::delete('/emails/{id}/delete', [EmailController::class, 'deleteEmail']);
 
 Route::patch('/emails/{id}/read', [EmailController::class, 'markAsRead']);
 Route::patch('/emails/{id}/star', [EmailController::class, 'toggleStar']);
+
+
+Route::post('/drafts', [EmailController::class, 'store'])->middleware('auth:api');
+Route::get('/drafts', [EmailController::class, 'indexDraft'])->middleware('auth:api');
+Route::delete('/drafts/{id}', [EmailController::class, 'destroy'])->middleware('auth:api');
+Route::get('/drafts/{id}/attachments', [EmailController::class, 'getDraftAttachments'])->middleware('auth:api');
     
