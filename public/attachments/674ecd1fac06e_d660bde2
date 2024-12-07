@@ -1,0 +1,12 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: 387D54E57E6
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Fri, 15 Nov 2024 12:36:22 +0000 (UTC)
+
+Final-Recipient: rfc822; mbazilda2005@gmail.com
+Original-Recipient: rfc822;mbazilda2005@gmail.com
+Action: failed
+Status: 5.2.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550 5.2.1 [ERN] Recipient is receiving email too
+    quickly.

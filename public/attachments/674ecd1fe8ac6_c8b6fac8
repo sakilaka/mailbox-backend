@@ -1,0 +1,13 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: 78FB4322CE3
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Tue, 26 Nov 2024 14:49:24 +0000 (UTC)
+
+Final-Recipient: rfc822; felixrwagitare999@qq.com
+Original-Recipient: rfc822;felixrwagitare999@qq.com
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; mx3.qq.com
+Diagnostic-Code: smtp; 550 Mailbox unavailable or access denied
+    [MHbBKAqejwkQfkJHfP0oiyCC87PDdVzNc7mx7MKPRlZQv7qOq/LPfXUnzPbhKE8g/g==  IP:
+    23.83.221.20]. https://service.mail.qq.com/detail/0/166.

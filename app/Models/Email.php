@@ -15,6 +15,7 @@ class Email extends Model
         'sender',
         'subject',
         'body',
+        'content_type',
         'attachment',
         'snippet',
         'is_read',

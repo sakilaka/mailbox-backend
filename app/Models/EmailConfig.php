@@ -13,6 +13,7 @@ class EmailConfig extends Model
         'user_id',
         'driver',
         'host',
+        'smtp_host',
         'outgoing_port',
         'incoming_port',
         'username',

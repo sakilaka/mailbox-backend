@@ -10,12 +10,14 @@ class SentEmail extends Model
     use HasFactory;
     
     protected $fillable = [
+        'user_id',
         'from',
         'to',
         'cc',
         'subject',
         'message',
         'snippet',
+        'schedule_time',
         'attachment',
         'is_trash'
     ];

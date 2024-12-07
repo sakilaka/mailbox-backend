@@ -1,0 +1,15 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: 5948481DCF
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Thu, 14 Nov 2024 04:28:56 +0000 (UTC)
+
+Final-Recipient: rfc822; kamrulhasn275723@gmail.com
+Original-Recipient: rfc822;kamrulhasn275723@gmail.com
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.1.1 The email account that you tried to reach does
+    not exist. Please try 550-5.1.1 double-checking the recipient's email
+    address for typos or 550-5.1.1 unnecessary spaces. For more information, go
+    to 550 5.1.1  https://support.google.com/mail/?p=NoSuchUser
+    d9443c01a7336-211c7d13c84si3160645ad.393 - gsmtp

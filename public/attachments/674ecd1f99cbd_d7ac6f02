@@ -1,0 +1,11 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: 73E4F42B44
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Mon, 11 Nov 2024 04:41:03 +0000 (UTC)
+
+Final-Recipient: rfc822; dario.1955@yahoo.com
+Original-Recipient: rfc822;dario.1955@yahoo.com
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; mta6.am0.yahoodns.net
+Diagnostic-Code: smtp; 552 1 Requested mail action aborted, mailbox not found

@@ -1,0 +1,11 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: 7726B8A2A2C
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Sat, 23 Nov 2024 09:08:36 +0000 (UTC)
+
+Final-Recipient: rfc822; silote@mailinator.com
+Original-Recipient: rfc822;silote@mailinator.com
+Action: failed
+Status: 4.0.0
+Remote-MTA: dns; mail.mailinator.com
+Diagnostic-Code: smtp; 421 Downstream server error

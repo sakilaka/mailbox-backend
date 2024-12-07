@@ -1,0 +1,62 @@
+Return-Path: <system@malishaedubd.com>
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id D27701815B9
+	for <kamrulhasan25723@gmail.com>; Tue, 19 Nov 2024 05:50:54 +0000 (UTC)
+Received: from fr-int-smtpout2.hostinger.io (100-109-10-188.trex-nlb.outbound.svc.cluster.local [100.109.10.188])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 6435A181B27
+	for <kamrulhasan25723@gmail.com>; Tue, 19 Nov 2024 05:50:52 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1731995454; a=rsa-sha256;
+	cv=none;
+	b=rGHA7I96vF9fDKa+DDAV8dLWspQbUqlGo3eb551MOgMGqkeLFrMRH6xiGaE/tNUqRg7JCH
+	Tqvv9kn8QFqtI/h/zWKHi3+wZTGWoHGJiq/kyka+FWYeLMaP9EhRyl/5/AACkvuZXdzluK
+	Jf0PY/eBzCL8uG6DEDKBrFbNiLBH4+MlR1APwdBJt2c3SRFk1he2gHozCmK5s7qp9Mce/O
+	tq+AsQBvXuQZXLsz+wbVA11Uqj04q4bxhjmwprOLHXXUNwJHn5kqp1j4a7BCCiC5qJvZ6d
+	pTU+TAa32VxJvZeP9hz99ZGs+OHlife1B50cQYXTHjSrHPv4nqpO8rffTdF17A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1731995454;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 dkim-signature; bh=xSVNx/KWM9R+1LbNflvdBZjQWS/okKtClUn1hHjiOwI=;
+	b=MPyYh1wsH9jgkEnOn6zkTm18HT90QFW25WE36T9b5C7+82oBQQ/QYHiUJ0NCS5Qg1NhBtX
+	NlUW6955JKRmJOsqY2llUVs5Y+Kch4Uwum6zv4cLR90IXeBwj5zN3qCLZZkNDlqKlgh8zM
+	EHCZiMbwQZILddqRJEm5nWKgEoSarwFmacYhrm/QhNkhhNWdlODRhGKOML7DOJZefc+xnC
+	tdfrznasOAS6YonNIflBgjaphW0pfL4QIxAFEwBBh+r+OI/URmlF/0UPbbBvPeIgxWwvZD
+	4KS4XsloJmcOxNiblACLUkqx9VxfEK/7d/wcPeNCzv27vYWXkcnABJRZ28IrIA==
+ARC-Authentication-Results: i=1;
+	rspamd-7456989c76-nlqbr;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=system@malishaedubd.com
+X-Sender-Id: hostingeremail|x-authuser|system@malishaedubd.com
+X-MC-Relay: Neutral
+X-MailChannels-SenderId: hostingeremail|x-authuser|system@malishaedubd.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Battle-Imminent: 0f0f39973fd4b2e0_1731995454563_173240751
+X-MC-Loop-Signature: 1731995454563:3832381271
+X-MC-Ingress-Time: 1731995454563
+Received: from fr-int-smtpout2.hostinger.io (fr-int-smtpout2.hostinger.io
+ [89.116.146.81])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.109.10.188 (trex/7.0.2);
+	Tue, 19 Nov 2024 05:50:54 +0000
+From: system@malishaedubd.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=malishaedubd.com;
+	s=hostingermail-a; t=1731995450;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=xSVNx/KWM9R+1LbNflvdBZjQWS/okKtClUn1hHjiOwI=;
+	b=ApLGiAxji+fEZasX21LDaiben2PE0KvhKfOIobOFCoI8M7K/v9hQ2FPWmNKL5PNJ28yiud
+	Hljb9MLnYF/uOGt/Ut1+CpjJPSvzUCLKHLMCPaITdpyO2NLnks96pRuD/0JkdYfm/pRjHU
+	nqmr3yMmXyDbsIvpbZgxeW/bu7Kd8in5dXQH0N/lGHFeD/7mJ9kf1S5gX4BD/xDDqWAfdJ
+	F1+Q1U237A7pOxwdWQbghL3JvA429QsFeiB9mI0nNYNOr9IFEbXCc8SirADFwrrdZV1vBa
+	xjHKT7UPv+M4WD/IhfHlFOVUTUmuAHe+QKcvZ+MiqOuYkqx4+lu6nhR2Ec/1cA==
+To: kamrulhasan25723@gmail.com
+Cc: kamrulhasan25723@gmail.com
+Subject: Multiple file send
+Message-ID: <0838d42be76580b11b200c9831d3678d@malishaedubd.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=0NB9Sw4Q
+Date: Tue, 19 Nov 2024 05:50:48 +0000 (UTC)
+X-CM-Envelope: MS4xfADh2ZRXlUX/fjWSk+QvKmWlY1ze1SHS2UWV56oBoIEgSfyrX3lpYvdYFHsF+MTE5fsdn8UD8OrMMcVZn0D/eWh6cHoevQHl+Z6WJ1HR6676hxLwS88v XXJHDn/KA87ZOPEvhlDuPi764Ds+N9aqkah2Y62lIjzSFTMjwuXWlYxi61y+xxbpb3ykAwnfMGU0aK098tvk4DG0CQSaIxk+90d3nP3a6WFpKE8ceNZMjtjs
+X-CM-Analysis: v=2.4 cv=YbDv5BRf c=1 sm=1 tr=0 ts=673c273a a=jfc+1iFyyXhXEYOC1mCyRQ==:117 a=jfc+1iFyyXhXEYOC1mCyRQ==:17 a=5qWnJzeOwJ3xUEF-muMA:9 a=QEXdDO2ut3YA:10 a=lN4OEFCiEdaYV9oqL24A:9 a=HXjIzolwW10A:10 a=2uQxSp-k2B47vjUVkpkA:9 a=T6a71-JsGAwA:10
+X-AuthUser: system@malishaedubd.com

@@ -1,0 +1,14 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: D22058233C
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Thu, 14 Nov 2024 09:03:12 +0000 (UTC)
+
+Final-Recipient: rfc822; Khantaouhid7@gmail.com
+Original-Recipient: rfc822;Khantaouhid7@gmail.com
+Action: failed
+Status: 4.2.2
+Remote-MTA: dns; alt4.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 452-4.2.2 The recipient's inbox is out of storage space.
+    Please direct the 452-4.2.2 recipient to 452 4.2.2
+    https://support.google.com/mail/?p=OverQuotaTemp
+    3f1490d57ef6-e38152c5968si1053876276.61 - gsmtp

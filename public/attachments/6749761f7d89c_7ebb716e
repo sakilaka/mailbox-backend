@@ -1,0 +1,177 @@
+Return-Path: <system@malishaedubd.com>
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 1C21F821568
+	for <lakishasanchezb@gmail.com>; Fri, 29 Nov 2024 07:52:45 +0000 (UTC)
+Received: from nl-srv-smtpout10.hostinger.io (100-122-179-167.trex-nlb.outbound.svc.cluster.local [100.122.179.167])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id 5075F8216F6
+	for <lakishasanchezb@gmail.com>; Fri, 29 Nov 2024 07:52:44 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1732866764; a=rsa-sha256;
+	cv=none;
+	b=uSRu3ariwZdCRxBDWDZKDlCrugdI4I1J26oTgH6mi14+C/vLtvCj6pQgV2arSg81WFpOmC
+	cIF4TMTYrLLNw9GOdAw3UCiSHrE7KMM0BiMg49LH9CSbC+aEDmTCsgBzxmkCOaIWVVBphV
+	Al6r1RA94dp4mWZyZqmDIfDjMeVIfbwQ9SaISbOlQtc2gGHxAJpbz34WQYXhV0C7T0S1tp
+	2pUDTo9/wi3nMVOxmmhKV8fdwiZpBmhNwfUCsi0PUw9zHXcZYAANIKSZ8bPVo7WzlWO5DF
+	01GtWaZvUtYtL14Zff2IoZwioK2tL0RS8IgZOeKNh8xXuaq2fXkbp+9mNSLMQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1732866764;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:dkim-signature;
+	bh=eFSCm7Y3/N2j0mYTqxpTyPUAOhczAzTT0VluHjajif0=;
+	b=JYpMp6GAXy2lDDp7zFd04GmvmnyfnUJ0FFKZjk2H92hUMpxPvaclkopPzF+LbsvmyRrW0k
+	hq9QSIK+dpRjSz/GB3YeguVoz4bz8wgYbJq9Rd83e0hIivb8RPMQJZXIE709AgDKU3dG/O
+	madKmSMPo2VrofxvXvNinmIonIqJcXTouWuW1jbLSztKmiIwgrAs0lmnUAklDJlYm1/pj3
+	xeeW8Eyc2sdavDjMJl+DP/33AJavzWIRND8OroNmnfp3OPaflb0riRGaocvVtzDUyKvbkF
+	La0628q1r5tBu26Q7k/1EprwhGVIakPgchDB6F4JcdYzHurEPQ58nqurPPaCTg==
+ARC-Authentication-Results: i=1;
+	rspamd-6f97746949-trjmz;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=system@malishaedubd.com
+X-Sender-Id: hostingeremail|x-authuser|system@malishaedubd.com
+X-MC-Relay: Junk
+X-MailChannels-SenderId: hostingeremail|x-authuser|system@malishaedubd.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Tart-Celery: 3d9e9f3f5a7975ad_1732866764654_1855808400
+X-MC-Loop-Signature: 1732866764654:4061406556
+X-MC-Ingress-Time: 1732866764654
+Received: from nl-srv-smtpout10.hostinger.io (nl-srv-smtpout10.hostinger.io
+ [185.224.136.59])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.122.179.167 (trex/7.0.2);
+	Fri, 29 Nov 2024 07:52:44 +0000
+From: MalishaEdu <system@malishaedubd.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=malishaedubd.com;
+	s=hostingermail-a; t=1732866762;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=eFSCm7Y3/N2j0mYTqxpTyPUAOhczAzTT0VluHjajif0=;
+	b=Lr80EaEJLyaRY6jpyu8Cka0BZ5LwnTB7dVUCs4Vou+WIuKrRboD4atPbR7GQkbhDEN33E2
+	9cq+kmsAGszgxG8WaD+t8OjrC8uSm9tS9S8x67SjpXxWNt36TPxgpo0RFNgcN3Xkp042n3
+	RONn+yDYZdFnOyVk0hfyxYx25AdNnDVCHMqmzjx8ZuzIZ9hsfxk1Rx4dqMxs8Kx9xQQVFA
+	4evITweXGoI/G6JGstLO9ktlGBej+Wz6CwawMsF3hZ/XQrTqkIh0kYeZW2oJI10K+7j/pt
+	Md1Tn2Z4ta8wiVhr6kqmCz3kqQ/NUDH40eEN8GhbGEuW3C4/fVWlUutLz8Zm5Q==
+To: lakishasanchezb@gmail.com
+Subject: Email Verification
+Message-ID: <083716f1ad9d5891ac3d4d668c6ad77c@malishaedubd.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+Date: Fri, 29 Nov 2024 07:52:41 +0000 (UTC)
+X-CM-Envelope: MS4xfCczW4kqpn8Ubfhxjh+DOwHdyLDQLRkhdubfAw/ZhZInOS6d+X1NgU0g3tQIjCTmAFrQzQNChq/quiS0ScWkgPjnDN2IfUAzzxGFkkfc7HJUcK6ujAiJ So8NkODScTXYgpGsUXM73QHD3H5+IyeY1jhZvWirrF0ZJrlNNh73cqEVmq4nrXLK5zMUnSsMuPU7wlojcvIBr8t1IMCIgZLJ04M=
+X-CM-Analysis: v=2.4 cv=bJlEI++Z c=1 sm=1 tr=0 ts=674972ca a=w9MGIfATjROS7ZAo+RiKZA==:117 a=w9MGIfATjROS7ZAo+RiKZA==:17 a=IkcTkHD0fZMA:10 a=sWKEhP36mHoA:10 a=zg4grumVAAAA:8 a=3g80flMcAAAA:8 a=TQPplj8WxjTTiIlIMG0A:9 a=x7Mff6FXQXokGcOm:21 a=frz4AuCg-hUA:10 a=_W_S_7VecoQA:10 a=QEXdDO2ut3YA:10 a=8RYlvNRTLsSkW-wCn2Mp:22 a=IqASP1AQoCRSTYHSjjrg:22 a=3urWGuTZa-U-TZ_dHwj2:22
+X-AuthUser: system@malishaedubd.com
+
+<!DOCTYPE html>
+<html lang=3D"en">
+
+<head>
+    <meta charset=3D"UTF-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=
+=3D1.0">
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"ie=3Dedge">
+
+   =20
+    <title>MalishaEdu | SendMail</title>
+
+    <style type=3D"text/css">
+        a:hover {
+            text-decoration: underline !important;
+        }
+    </style>
+
+    <link rel=3D"stylesheet" href=3D"https://malishaedu.com/frontend/ckedit=
+or5-rendered.css">
+</head>
+
+<body marginheight=3D"0" topmargin=3D"0" marginwidth=3D"0" style=3D"margin:=
+ 0px; background-color: #f2f3f8;" leftmargin=3D"0">
+    <!--100% body table-->
+    <table cellspacing=3D"0" border=3D"0" cellpadding=3D"0" width=3D"100%" =
+bgcolor=3D"#f2f3f8"
+        style=3D"@import url(https://fonts.googleapis.com/css?family=3DRubi=
+k:300,400,500,700|Open+Sans:300,400,600,700); font-family: 'Open Sans', san=
+s-serif;">
+        <tr>
+            <td>
+                <table style=3D"background-color: #f2f3f8; max-width:670px;=
+  margin:0 auto;" width=3D"100%" border=3D"0"
+                    align=3D"center" cellpadding=3D"0" cellspacing=3D"0">
+                    <tr>
+                        <td style=3D"height:80px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style=3D"text-align:center;">
+                            <h2><strong>MalishaEdu</strong></h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=3D"height:20px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width=3D"95%" border=3D"0" align=3D"cent=
+er" cellpadding=3D"0" cellspacing=3D"0"
+                                style=3D"max-width:670px;background:#fff; b=
+order-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,=
+0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px=
+ 0 rgba(0,0,0,.06);">
+                                <tr>
+                                    <td style=3D"height:40px;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"padding:0 35px;">
+                                        <h2
+                                            style=3D"color:#1e1e2d; font-we=
+ight:500; margin:0;font-size:28px;font-family:'Rubik',sans-serif;">
+                                            Email Verification
+                                        </h2>
+                                        <span
+                                            style=3D"display:inline-block; =
+vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece;=
+ width:100px;"></span>
+                                        <p style=3D"color:#455056; font-siz=
+e:15px;line-height:24px; margin:0;">
+                                            Your verification code is:
+                                        </p>
+                                        <h3 style=3D"color:#1e1e2d; font-we=
+ight:500; margin:0;font-size:24px;">
+                                            76687
+                                        </h3>
+                                        <p style=3D"color:#455056; font-siz=
+e:15px;line-height:24px; margin:0;">
+                                            This code is valid for a limite=
+d time. Please use it promptly to verify your
+                                            email.
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style=3D"height:40px;">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    <tr>
+                        <td style=3D"height:20px;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style=3D"text-align:center;">
+                            <p
+                                style=3D"font-size:14px; color:rgba(69, 80,=
+ 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">
+                                &copy; <strong>MalishaEdu .
+                                    2024</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=3D"height:80px;">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!--/100% body table-->
+</body>
+
+</html>

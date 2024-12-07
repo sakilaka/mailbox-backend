@@ -1,0 +1,12 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: EED332C39E3
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Sun, 17 Nov 2024 12:25:33 +0000 (UTC)
+
+Final-Recipient: rfc822; khanmuhammadsameer119@gamil.com
+Original-Recipient: rfc822;khanmuhammadsameer119@gamil.com
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; mail.gamil.com
+Diagnostic-Code: smtp; 511 sorry, no mailbox here by that name (#5.1.1 -
+    chkuser)

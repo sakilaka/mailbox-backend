@@ -1,0 +1,12 @@
+Reporting-MTA: dns; relay.mailchannels.net
+X-Postfix-Queue-ID: 4A21A4E2C8A
+X-Postfix-Sender: rfc822; system@malishaedubd.com
+Arrival-Date: Sat, 30 Nov 2024 11:26:01 +0000 (UTC)
+
+Final-Recipient: rfc822; vutitu@mailinator.com
+Original-Recipient: rfc822;vutitu@mailinator.com
+Action: failed
+Status: 4.4.2
+Diagnostic-Code: X-Postfix; lost connection with
+    mail2.mailinator.com[45.33.83.75] while receiving the initial server
+    greeting

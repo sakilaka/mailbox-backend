@@ -2,23 +2,18 @@
 
 namespace App\Console;
 
-use App\Console\Commands\FetchEmails;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * Define the application's command schedule.
-     */
+    
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('email:fetch')->everyMinutes();
+        $schedule->command('email:fetch')->everyMinute();
+        $schedule->command('emails:send-scheduled')->everyMinute();
     }
 
-    /**
-     * Register the commands for the application.
-     */
     protected function commands(): void
     {
         $this->load(__DIR__.'/Commands');
@@ -27,7 +22,8 @@ class Kernel extends ConsoleKernel
     }
 
     protected $commands = [
-        FetchEmails::class, // Register the FetchEmails command
+        \App\Console\Commands\FetchEmails::class,
+        \App\Console\Commands\SendScheduledEmails::class,
     ];
 
 

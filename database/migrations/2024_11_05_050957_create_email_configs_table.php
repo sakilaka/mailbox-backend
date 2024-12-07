@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('email_configs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('driver')->nullable();
             $table->string('host')->nullable();
+            $table->string('smtp_host')->nullable();
             $table->string('incoming_port')->nullable();
             $table->string('outgoing_port')->nullable();
             $table->string('username')->nullable();
@@ -23,9 +25,11 @@ return new class extends Migration
             $table->string('from_address')->nullable();
             $table->string('from_name')->nullable();
             $table->timestamps();
-        });
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         
-    }
+        });
+    }    
 
     /**
      * Reverse the migrations.

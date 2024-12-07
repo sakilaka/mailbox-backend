@@ -24,75 +24,37 @@ class FetchEmails extends Command
      */
     protected $description = 'Fetch emails from the IMAP server';
 
-    // public function handle()
-    // {
-    //     Log::info('Starting email fetching process...');
+   
 
-    //     try {
-    //         $client = Client::account('default'); // Make sure 'default' matches your configuration
-    //         Log::info('Attempting to connect to IMAP server...');
-
-    //         $client->connect(); // Attempt to connect to the IMAP server
-    //         Log::info('Connected to IMAP server successfully.');
-
-    //         $folders = $client->getFolders();
-    //         Log::info('Fetched folders:', ['folders' => $folders->pluck('name')]);
-
-    //         foreach ($folders as $folder) {
-    //             Log::info('Processing folder:', ['folder' => $folder->name]);
-    //             $messages = $folder->messages()->all()->get();
-    //             Log::info('Fetched messages count:', ['count' => $messages->count()]);
-
-    //             foreach ($messages as $message) {
-    //                 Log::info('Processing message:', [
-    //                     'from' => $message->getFrom()[0]->mail,
-    //                     'subject' => $message->getSubject()
-    //                 ]);
-
-    //                 // Check if the message is read by checking its flags
-    //                 $isRead = $message->getFlags()->has('\\Seen');
-
-    //                 Email::create([
-    //                     'email_config_id' => 1, // Adjust with the correct config ID if dynamic
-    //                     'sender' => $message->getFrom()[0]->mail,
-    //                     'subject' => $message->getSubject(),
-    //                     'body' => $message->getTextBody(),
-    //                     'snippet' => substr($message->getTextBody(), 0, 50),
-    //                     'is_read' => $isRead,
-    //                 ]);
-    //             }
-    //         }
-    //     } catch (\Exception $e) {
-    //         Log::error('Error fetching emails:', ['error' => $e->getMessage()]);
-    //     }
-    // }
-
-    
     public function handle()
     {
         Log::info('Starting email fetching process...');
-        
-        $emailConfigs = EmailConfig::all();
     
+        $emailConfigs = EmailConfig::all();
         foreach ($emailConfigs as $config) {
+            Log::info("Processing email configuration", ['config_id' => $config->id]);
+    
             $userAccounts = json_decode($config->username);
     
             if (is_array($userAccounts)) {
                 foreach ($userAccounts as $account) {
                     if (isset($account->email) && isset($account->password)) {
+                        Log::info("Processing account", ['email' => $account->email]);
+    
                         try {
                             $clientManager = new ClientManager();
-    
                             $client = $clientManager->make([
-                                'host'          => $config->host,
-                                'port'          => $config->port,
-                                'encryption'    => $config->encryption,
-                                'username'      => $account->email,
-                                'password'      => $account->password,
-                                'protocol'      => $config->driver,
+                                'host'       => $config->host,
+                                'port'       => $config->incoming_port,
+                                'encryption' => $config->encryption,
+                                'username'   => $account->email,
+                                'password'   => $account->password,
+                                'protocol'   => $config->driver,
                             ]);
     
                             $client->connect();
+                            Log::info("Connected successfully", ['email' => $account->email]);
+    
                             $folders = $client->getFolders();
     
                             foreach ($folders as $folder) {
@@ -102,60 +64,64 @@ class FetchEmails extends Command
                                     $messageId = $message->getMessageId() ?: null;
     
                                     $existingEmail = Email::where('email_config_id', $config->id)
-                                                           ->where('message_id', $messageId)
-                                                           ->first();
+                                        ->where('message_id', $messageId)
+                                        ->first();
     
                                     if (!$existingEmail) {
-                                        Log::info('No existing email found for message_id:', ['message_id' => $messageId]);
-    
                                         $from = $message->getFrom();
                                         $senderEmail = (!empty($from) && isset($from[0]->mail)) ? $from[0]->mail : 'unknown';
+    
+                                        // Retrieve HTML content
+                                        $htmlBody = $message->getHtmlBody();
+                                        $textBody = $message->getTextBody();
+                                        $body = $htmlBody ?: $textBody;
     
                                         // Handle attachments
                                         $attachments = [];
                                         if ($message->hasAttachments()) {
                                             foreach ($message->getAttachments() as $attachment) {
-                                                // Generate a unique file name to avoid conflicts
                                                 $uniqueName = uniqid() . '_' . $attachment->getName();
-                                                
-                                                // Define the relative and absolute paths
-                                                $relativePath = 'attachments/email/' . $uniqueName;
-                                                $attachmentPath = storage_path('app/public/' . $relativePath);
-                                                
-                                                // Save the attachment content to the file
-                                                file_put_contents($attachmentPath, $attachment->getContent());
-                                                
-                                                // Save only the relative path to the array
-                                                $attachments[] = $relativePath;
+                                                $relativePath = 'attachments/' . $uniqueName;
+                                                $attachmentPath = public_path($relativePath);
+    
+                                                try {
+                                                    file_put_contents($attachmentPath, $attachment->getContent());
+                                                    $attachments[] = $relativePath;
+                                                } catch (\Exception $e) {
+                                                    Log::error("Error saving attachment", [
+                                                        'path' => $attachmentPath,
+                                                        'error' => $e->getMessage(),
+                                                    ]);
+                                                }
                                             }
                                         }
     
                                         Email::create([
                                             'email_config_id' => $config->id,
-                                            'sender' => $senderEmail,
-                                            'subject' => $message->getSubject(),
-                                            'body' => $message->getTextBody(),
-                                            'snippet' => substr($message->getTextBody(), 0, 50),
-                                            'is_read' => $message->getFlags()->has('\\Seen'),
-                                            'message_id' => $messageId,
-                                            'attachment' => json_encode($attachments), // Store attachment paths as JSON
+                                            'sender'          => $senderEmail,
+                                            'subject'         => $message->getSubject(),
+                                            'body'            => $body,
+                                            'content_type'    => $htmlBody ? 'html' : 'text',
+                                            'snippet'         => substr(strip_tags($body), 0, 50),
+                                            'is_read'         => $message->getFlags()->has('\\Seen'),
+                                            'message_id'      => $messageId,
+                                            'attachment'      => json_encode($attachments),
                                         ]);
-                                    } else {
-                                        Log::info('Existing email found:', ['id' => $existingEmail->id, 'message_id' => $existingEmail->message_id]);
+    
+                                        Log::info("Email saved successfully", ['message_id' => $messageId]);
                                     }
                                 }
                             }
                         } catch (\Exception $e) {
-                            Log::error("Error fetching emails for {$account->email}: {$e->getMessage()}");
+                            Log::error("Error processing account", [
+                                'email' => $account->email,
+                                'error' => $e->getMessage(),
+                            ]);
                         }
                     }
                 }
-            } else {
-                Log::error("Invalid username format for config ID {$config->id}");
             }
         }
     }
     
-    
-
 }
